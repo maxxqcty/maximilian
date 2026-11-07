@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Base: reset, page defaults and shared utility classes
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 var(--step-0)/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background .5s var(--ease), color .5s var(--ease);
+}
+
+/* paints the phone's status-bar band so content never scrolls visibly under it */
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; z-index: 10;
+  height: env(safe-area-inset-top, 0px); background: var(--paper);
+}
+
+a { color: inherit; }
+img { max-width: 100%; }
+::selection { background: var(--accent); color: var(--on-accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+/* ---------- utilities ---------- */
+.wrap {
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+.mono { font-family: var(--f-mono); font-size: var(--step--1); letter-spacing: .02em; }
+.label { font-family: var(--f-mono); font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-soft); }
+
+/* round GitHub / LinkedIn icon buttons (header and hero) */
+.social { display: flex; align-items: center; gap: 8px; }
+.icon-link {
+  width: 40px; height: 40px; flex: none; display: grid; place-items: center; border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); color: var(--ink);
+  background: color-mix(in srgb, var(--paper) 70%, transparent);
+  transition: background .3s, color .3s, border-color .3s, transform .45s var(--ease);
+}
+.icon-link svg { width: 17px; height: 17px; }
+.icon-link:hover, .icon-link:focus-visible { background: var(--ink); color: var(--paper); border-color: var(--ink); transform: translateY(-2px); }
+
+/* ---------- motion preferences: everything animated is switched off here ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}

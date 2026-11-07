@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maximilian Axel Enolpe Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Maximilian Axel Enolpe: computer science student in Dumaguete City building full-stack web apps, data tools and algorithm visualisers.">
+<meta property="og:title" content="Maximilian Axel Enolpe">
+<meta property="og:description" content="Full-stack web apps, data tools and algorithm visualisers.">
+<meta property="og:image" content="assets/images/portrait/portrait-1000.webp">
+<link rel="icon" href="assets/images/icons/favicon.svg" type="image/svg+xml">
+
+<!-- fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<!-- styles: tokens → base → layout → components -->
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components/background.css">
+<link rel="stylesheet" href="assets/css/components/header.css">
+<link rel="stylesheet" href="assets/css/components/hero.css">
+<link rel="stylesheet" href="assets/css/components/work.css">
+<link rel="stylesheet" href="assets/css/components/profile.css">
+<link rel="stylesheet" href="assets/css/components/languages.css">
+<link rel="stylesheet" href="assets/css/components/record.css">
+<link rel="stylesheet" href="assets/css/components/media.css">
+<link rel="stylesheet" href="assets/css/components/contact.css">
+<link rel="stylesheet" href="assets/css/components/hud.css">
+<link rel="stylesheet" href="assets/css/components/cursor.css">
+
+<!-- theme runs before paint so the saved theme never flashes -->
+<script src="assets/js/theme.js"></script>
+
+<!-- behaviour: core first, then modules, then main starts the loop -->
+<script src="assets/js/core.js" defer></script>
+<script src="assets/js/modules/grid.js" defer></script>
+<script src="assets/js/modules/background.js" defer></script>
+<script src="assets/js/modules/clock.js" defer></script>
+<script src="assets/js/modules/hero-name.js" defer></script>
+<script src="assets/js/modules/portrait.js" defer></script>
+<script src="assets/js/modules/hero-stats.js" defer></script>
+<script src="assets/js/modules/hud.js" defer></script>
+<script src="assets/js/modules/scroll-ruler.js" defer></script>
+<script src="assets/js/modules/project-art.js" defer></script>
+<script src="assets/js/modules/work.js" defer></script>
+<script src="assets/js/modules/languages.js" defer></script>
+<script src="assets/js/modules/contact.js" defer></script>
+<script src="assets/js/modules/reveal.js" defer></script>
+<script src="assets/js/modules/cursor.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<!-- ============ drafting grid backdrop + animated layer (background.js) ============ -->
+<div class="grid-bg" aria-hidden="true"><div class="wrap">
+  <span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span>
+  <span style="--i:4"></span><span style="--i:5"></span><span style="--i:6"></span><span style="--i:7"></span>
+  <span style="--i:8"></span><span style="--i:9"></span><span style="--i:10"></span><span style="--i:11"></span>
+</div></div>
+<canvas class="bg-fx" id="bgfx" aria-hidden="true"></canvas>
+
+<!-- ============ header ============ -->
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">MAE<sup>CS</sup></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#work">Work</a><a href="#profile">Profile</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="social social-top"><a class="icon-link" href="https://github.com/maxxqcty" target="_blank" rel="noopener" aria-label="GitHub profile (opens in a new tab)" title="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a><a class="icon-link" href="https://www.linkedin.com/in/maximilian-axel-enolpe-90b755266/" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85V1.15zm4.94 12.25V6.17h-2.4v7.23h2.4zm-1.2-8.21c.84 0 1.36-.56 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .69.52 1.25 1.33 1.25h.01zm4.91 8.21V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.63v3.88h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg></a></div>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 1.7a6.3 6.3 0 0 1 0 12.6z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ hero ============ -->
+  <div class="hero wrap">
+    <div class="hero-meta">
+      <span class="label avail"><span class="dot"></span>Studying at NORSU, Dumaguete City</span>
+      <span class="label">9.3068° N, 123.3054° E</span>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="hero-role mono"><span>Full-stack developer</span><span>BS Computer Science</span></p>
+        <h1 class="name" id="name" aria-label="Maximilian Axel Enolpe">Maximilian Axel Enolpe</h1>
+        <div class="hero-foot">
+          <p class="statement">I build <em>full-stack web apps</em>, data tools and algorithm visualisers, from the database up to the screen.</p>
+          <div class="hero-cta">
+            <a class="btn btn-solid" href="#work">See my work
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2.5v11M3.5 9 8 13.5 12.5 9"/></svg></a>
+            <a class="btn btn-line" href="#contact">Get in touch</a>
+            <div class="social"><a class="icon-link" href="https://github.com/maxxqcty" target="_blank" rel="noopener" aria-label="GitHub profile (opens in a new tab)" title="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a><a class="icon-link" href="https://www.linkedin.com/in/maximilian-axel-enolpe-90b755266/" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85V1.15zm4.94 12.25V6.17h-2.4v7.23h2.4zm-1.2-8.21c.84 0 1.36-.56 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .69.52 1.25 1.33 1.25h.01zm4.91 8.21V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.63v3.88h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg></a></div>
+          </div>
+        </div>
+        <!-- figures count up on load (hero-stats.js); the final value is in the markup -->
+        <ul class="hero-stats">
+          <li><b data-count="23">23</b><span>repositories</span></li>
+          <li><b data-count="5">5</b><span>featured projects</span></li>
+          <li><b data-count="4">4</b><span>certificates</span></li>
+          <li><b>2023</b><span>started CS</span></li>
+        </ul>
+      </div>
+      <figure class="portrait">
+        <span class="ring" aria-hidden="true"></span>
+        <span class="disc" aria-hidden="true"></span>
+        <img id="portraitImg"
+             src="assets/images/portrait/portrait-1000.webp"
+             srcset="assets/images/portrait/portrait-600.webp 600w, assets/images/portrait/portrait-1000.webp 1000w"
+             sizes="(max-width: 900px) min(420px, 100vw), 42vw"
+             width="1000" height="1000" fetchpriority="high"
+             alt="Portrait of Maximilian Axel Enolpe in a black suit and tie">
+        <figcaption class="mono">@maxxqcty</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ============ selected work ============
+       data-art     which drawing in project-art.js animates the preview
+       data-caption text on the floating preview card
+       data-cursor  label shown on the cursor blob -->
+  <section id="work" class="wrap">
+    <div class="sec-head reveal"><h2>Selected work</h2><span class="label">2024 – 2026 · 5 of 23 repositories</span></div>
+    <ul class="work-list">
+      <li class="row reveal"><a href="https://github.com/maxxqcty/openseat" target="_blank" rel="noopener" data-art="seats" data-caption="OpenSeat · FastAPI + React" data-cursor="Code ↗">
+        <span class="r-year mono">2026</span><span class="r-title">OpenSeat</span>
+        <span class="r-meta r-role">Booking and waitlist app that fills cancelled seats automatically</span><span class="r-meta r-disc mono">FastAPI, React, Postgres</span>
+        <svg class="r-arrow" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 11h14M12 5l6 6-6 6"/></svg>
+        <canvas class="r-thumb" width="176" height="176" aria-hidden="true"></canvas></a></li>
+      <li class="row reveal"><a href="https://github.com/maxxqcty/Semantic-Scholar-PDF-Downloader" target="_blank" rel="noopener" data-art="papers" data-caption="Scholar Downloader · Python CLI" data-cursor="Code ↗">
+        <span class="r-year mono">2026</span><span class="r-title">Scholar PDF Downloader</span>
+        <span class="r-meta r-role">Searches Semantic Scholar and saves open-access papers with Excel metadata</span><span class="r-meta r-disc mono">Python, CLI</span>
+        <svg class="r-arrow" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 11h14M12 5l6 6-6 6"/></svg>
+        <canvas class="r-thumb" width="176" height="176" aria-hidden="true"></canvas></a></li>
+      <li class="row reveal"><a href="https://maxxqcty.github.io/BST-Visualizer/" target="_blank" rel="noopener" data-art="bst" data-caption="BST Visualizer · live demo" data-cursor="Demo ↗">
+        <span class="r-year mono">2024</span><span class="r-title">BST Visualizer</span>
+        <span class="r-meta r-role">Animates binary search tree insertion and search paths</span><span class="r-meta r-disc mono">JavaScript, D3</span>
+        <svg class="r-arrow" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 11h14M12 5l6 6-6 6"/></svg>
+        <canvas class="r-thumb" width="176" height="176" aria-hidden="true"></canvas></a></li>
+      <li class="row reveal"><a href="https://maxxqcty.github.io/AVL-Tree-Visualizer/" target="_blank" rel="noopener" data-art="avl" data-caption="AVL Tree Visualizer · live demo" data-cursor="Demo ↗">
+        <span class="r-year mono">2024</span><span class="r-title">AVL Tree Visualizer</span>
+        <span class="r-meta r-role">Shows self-balancing rotations live in the DOM</span><span class="r-meta r-disc mono">JavaScript</span>
+        <svg class="r-arrow" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 11h14M12 5l6 6-6 6"/></svg>
+        <canvas class="r-thumb" width="176" height="176" aria-hidden="true"></canvas></a></li>
+      <li class="row reveal"><a href="https://github.com/maxxqcty/School-System-Crud" target="_blank" rel="noopener" data-art="table" data-caption="School System · PHP + MySQL" data-cursor="Code ↗">
+        <span class="r-year mono">2024</span><span class="r-title">School System CRUD</span>
+        <span class="r-meta r-role">Student records with login, image uploads and owner-scoped queries</span><span class="r-meta r-disc mono">PHP, MySQL, Bootstrap</span>
+        <svg class="r-arrow" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 11h14M12 5l6 6-6 6"/></svg>
+        <canvas class="r-thumb" width="176" height="176" aria-hidden="true"></canvas></a></li>
+    </ul>
+  </section>
+
+  <!-- ============ profile ============ -->
+  <section id="profile" class="wrap">
+    <div class="sec-head reveal"><h2>Profile</h2><span class="label">English · Filipino · Cebuano</span></div>
+    <div class="profile">
+      <p class="profile-lead reveal">Computer science student at Negros Oriental State University. I like building software end to end: a clear data model, a fast API, and an interface people can use without instructions.</p>
+      <div class="profile-body reveal">
+        <p>With the Idealists’ Guild I build web apps and practise penetration testing in labs and security challenges.</p>
+        <div class="stack">
+          <div class="stack-group"><span class="label">Build</span>
+            <ul class="tools mono"><li>TypeScript</li><li>React</li><li>Next.js</li><li>Python</li><li>FastAPI</li><li>PHP</li><li>Laravel</li><li>Flutter</li></ul></div>
+          <div class="stack-group"><span class="label">Data &amp; ops</span>
+            <ul class="tools mono"><li>PostgreSQL</li><li>MySQL</li><li>Supabase</li><li>Docker</li><li>Linux</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ languages ============
+       Share of code by size across public, non-fork GitHub repos (markup and templates excluded).
+       --share sets the bar; data-* feeds the hover tooltip in languages.js. -->
+  <section id="languages" class="wrap">
+    <div class="sec-head reveal"><h2>Languages</h2><span class="label">Share of code on GitHub</span></div>
+    <ol class="langs">
+      <li class="lang reveal" data-name="Python" data-bytes="481337" data-repos="6">
+        <span class="lang-name"><svg class="lang-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>Python</span>
+        <span class="lang-track" aria-hidden="true"><span class="lang-fill" style="--share:40.0%"></span></span>
+        <span class="lang-pct mono">40.0%</span>
+        <span class="lang-repos mono"><b>6 repos</b> · OpenSeat, Scholar PDF Downloader</span>
+      </li>
+      <li class="lang reveal" data-name="TypeScript" data-bytes="435994" data-repos="3">
+        <span class="lang-name"><svg class="lang-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>TypeScript</span>
+        <span class="lang-track" aria-hidden="true"><span class="lang-fill" style="--share:36.3%"></span></span>
+        <span class="lang-pct mono">36.3%</span>
+        <span class="lang-repos mono"><b>3 repos</b> · OpenSeat web app, waitlist manager</span>
+      </li>
+      <li class="lang reveal" data-name="PHP" data-bytes="208345" data-repos="5">
+        <span class="lang-name"><svg class="lang-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"/></svg>PHP</span>
+        <span class="lang-track" aria-hidden="true"><span class="lang-fill" style="--share:17.3%"></span></span>
+        <span class="lang-pct mono">17.3%</span>
+        <span class="lang-repos mono"><b>5 repos</b> · School System CRUD, Laravel, Symfony</span>
+      </li>
+      <li class="lang reveal" data-name="C++" data-bytes="40445" data-repos="2">
+        <span class="lang-name"><svg class="lang-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.394 6c-.167-.29-.398-.543-.652-.69L12.926.22c-.509-.294-1.34-.294-1.848 0L2.26 5.31c-.508.293-.923 1.013-.923 1.6v10.18c0 .294.104.62.271.91.167.29.398.543.652.69l8.816 5.09c.508.293 1.34.293 1.848 0l8.816-5.09c.254-.147.485-.4.652-.69.167-.29.27-.616.27-.91V6.91c.003-.294-.1-.62-.268-.91zM12 19.11c-3.92 0-7.109-3.19-7.109-7.11 0-3.92 3.19-7.11 7.11-7.11a7.133 7.133 0 016.156 3.553l-3.076 1.78a3.567 3.567 0 00-3.08-1.78A3.56 3.56 0 008.444 12 3.56 3.56 0 0012 15.555a3.57 3.57 0 003.08-1.778l3.078 1.78A7.135 7.135 0 0112 19.11zm7.11-6.715h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79zm2.962 0h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79z"/></svg>C++</span>
+        <span class="lang-track" aria-hidden="true"><span class="lang-fill" style="--share:3.4%"></span></span>
+        <span class="lang-pct mono">3.4%</span>
+        <span class="lang-repos mono"><b>2 repos</b> · Number System, School Records</span>
+      </li>
+      <li class="lang reveal" data-name="JavaScript" data-bytes="35829" data-repos="9">
+        <span class="lang-name"><svg class="lang-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>JavaScript</span>
+        <span class="lang-track" aria-hidden="true"><span class="lang-fill" style="--share:3.0%"></span></span>
+        <span class="lang-pct mono">3.0%</span>
+        <span class="lang-repos mono"><b>9 repos</b> · BST &amp; AVL visualizers, front ends</span>
+      </li>
+    </ol>
+    <div class="langs-note reveal">
+      <p class="mono">Measured by code size across 18 public repositories, forks excluded, on 6 Nov 2026. JavaScript is small by size but appears in the most projects.</p>
+      <ul class="tools mono" aria-label="Markup and templates also used"><li><svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>HTML</li><li><svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>CSS</li><li><svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12c0 6.628-5.372 12-12 12S0 18.628 0 12 5.372 0 12 0s12 5.372 12 12zm-6.753-7.561c-1.22.042-2.283.715-3.075 1.644-.878 1.02-1.461 2.229-1.881 3.461-.753-.614-1.332-1.414-2.539-1.761-.966-.297-2.015-.105-2.813.514-.41.319-.71.757-.861 1.254-.36 1.176.381 2.225.719 2.6l.737.79c.15.154.519.56.339 1.138-.193.631-.951 1.037-1.732.799-.348-.106-.848-.366-.734-.73.045-.15.152-.263.21-.391.052-.11.077-.194.095-.242.141-.465-.053-1.07-.551-1.223-.465-.143-.939-.03-1.125.566-.209.68.117 1.913 1.86 2.449 2.04.628 3.765-.484 4.009-1.932.153-.907-.255-1.582-1.006-2.447l-.612-.677c-.371-.37-.497-1.002-.114-1.485.324-.409.785-.584 1.539-.379 1.103.3 1.594 1.063 2.412 1.68-.338 1.11-.56 2.223-.759 3.222l-.123.746c-.585 3.07-1.033 4.757-2.194 5.726-.234.166-.57.416-1.073.434-.266.005-.352-.176-.355-.257-.006-.184.15-.271.255-.353.154-.083.39-.224.372-.674-.016-.532-.456-.994-1.094-.973-.477.017-1.203.465-1.176 1.286.028.85.819 1.485 2.012 1.444.638-.021 2.062-.281 3.464-1.949 1.633-1.911 2.09-4.101 2.434-5.706l.383-2.116c.213.024.441.042.69.048 2.032.044 3.049-1.01 3.064-1.776.01-.464-.304-.921-.744-.91-.386.009-.718.278-.806.654-.094.428.646.813.068 1.189-.41.266-1.146.452-2.184.3l.188-1.042c.386-1.976.859-4.407 2.661-4.467.132-.007.612.006.623.323.003.105-.022.134-.147.375-.115.155-.174.345-.168.537.017.504.4.836.957.816.743-.023.955-.748.945-1.119-.032-.874-.952-1.424-2.17-1.386z"/></svg>Twig</li><li><svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.642 5.43a.364.364 0 01.014.1v5.149c0 .135-.073.26-.189.326l-4.323 2.49v4.934a.378.378 0 01-.188.326L9.93 23.949a.316.316 0 01-.066.027c-.008.002-.016.008-.024.01a.348.348 0 01-.192 0c-.011-.002-.02-.008-.03-.012-.02-.008-.042-.014-.062-.025L.533 18.755a.376.376 0 01-.189-.326V2.974c0-.033.005-.066.014-.098.003-.012.01-.02.014-.032a.369.369 0 01.023-.058c.004-.013.015-.022.023-.033l.033-.045c.012-.01.025-.018.037-.027.014-.012.027-.024.041-.034H.53L5.043.05a.375.375 0 01.375 0L9.93 2.647h.002c.015.01.027.021.04.033l.038.027c.013.014.02.03.033.045.008.011.02.021.025.033.01.02.017.038.024.058.003.011.01.021.013.032.01.031.014.064.014.098v9.652l3.76-2.164V5.527c0-.033.004-.066.013-.098.003-.01.01-.02.013-.032a.487.487 0 01.024-.059c.007-.012.018-.02.025-.033.012-.015.021-.03.033-.043.012-.012.025-.02.037-.028.014-.01.026-.023.041-.032h.001l4.513-2.598a.375.375 0 01.375 0l4.513 2.598c.016.01.027.021.042.031.012.01.025.018.036.028.013.014.022.03.034.044.008.012.019.021.024.033.011.02.018.04.024.06.006.01.012.021.015.032zm-.74 5.032V6.179l-1.578.908-2.182 1.256v4.283zm-4.51 7.75v-4.287l-2.147 1.225-6.126 3.498v4.325zM1.093 3.624v14.588l8.273 4.761v-4.325l-4.322-2.445-.002-.003H5.04c-.014-.01-.025-.021-.04-.031-.011-.01-.024-.018-.035-.027l-.001-.002c-.013-.012-.021-.025-.031-.04-.01-.011-.021-.022-.028-.036h-.002c-.008-.014-.013-.031-.02-.047-.006-.016-.014-.027-.018-.043a.49.49 0 01-.008-.057c-.002-.014-.006-.027-.006-.041V5.789l-2.18-1.257zM5.23.81L1.47 2.974l3.76 2.164 3.758-2.164zm1.956 13.505l2.182-1.256V3.624l-1.58.91-2.182 1.255v9.435zm11.581-10.95l-3.76 2.163 3.76 2.163 3.759-2.164zm-.376 4.978L16.21 7.087 14.63 6.18v4.283l2.182 1.256 1.58.908zm-8.65 9.654l5.514-3.148 2.756-1.572-3.757-2.163-4.323 2.489-3.941 2.27z"/></svg>Blade</li><li><svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.038,4.9l-7.577-4.498C13.009,0.134,12.505,0,12,0c-0.505,0-1.009,0.134-1.462,0.403L2.961,4.9 C2.057,5.437,1.5,6.429,1.5,7.503v8.995c0,1.073,0.557,2.066,1.462,2.603l7.577,4.497C10.991,23.866,11.495,24,12,24 c0.505,0,1.009-0.134,1.461-0.402l7.577-4.497c0.904-0.537,1.462-1.529,1.462-2.603V7.503C22.5,6.429,21.943,5.437,21.038,4.9z M15.17,18.946l0.013,0.646c0.001,0.078-0.05,0.167-0.111,0.198l-0.383,0.22c-0.061,0.031-0.111-0.007-0.112-0.085L14.57,19.29 c-0.328,0.136-0.66,0.169-0.872,0.084c-0.04-0.016-0.057-0.075-0.041-0.142l0.139-0.584c0.011-0.046,0.036-0.092,0.069-0.121 c0.012-0.011,0.024-0.02,0.036-0.026c0.022-0.011,0.043-0.014,0.062-0.006c0.229,0.077,0.521,0.041,0.802-0.101 c0.357-0.181,0.596-0.545,0.592-0.907c-0.003-0.328-0.181-0.465-0.613-0.468c-0.55,0.001-1.064-0.107-1.072-0.917 c-0.007-0.667,0.34-1.361,0.889-1.8l-0.007-0.652c-0.001-0.08,0.048-0.168,0.111-0.2l0.37-0.236 c0.061-0.031,0.111,0.007,0.112,0.087l0.006,0.653c0.273-0.109,0.511-0.138,0.726-0.088c0.047,0.012,0.067,0.076,0.048,0.151 l-0.144,0.578c-0.011,0.044-0.036,0.088-0.065,0.116c-0.012,0.012-0.025,0.021-0.038,0.028c-0.019,0.01-0.038,0.013-0.057,0.009 c-0.098-0.022-0.332-0.073-0.699,0.113c-0.385,0.195-0.52,0.53-0.517,0.778c0.003,0.297,0.155,0.387,0.681,0.396 c0.7,0.012,1.003,0.318,1.01,1.023C16.105,17.747,15.736,18.491,15.17,18.946z M19.143,17.859c0,0.06-0.008,0.116-0.058,0.145 l-1.916,1.164c-0.05,0.029-0.09,0.004-0.09-0.056v-0.494c0-0.06,0.037-0.093,0.087-0.122l1.887-1.129 c0.05-0.029,0.09-0.004,0.09,0.056V17.859z M20.459,6.797l-7.168,4.427c-0.894,0.523-1.553,1.109-1.553,2.187v8.833 c0,0.645,0.26,1.063,0.66,1.184c-0.131,0.023-0.264,0.039-0.398,0.039c-0.42,0-0.833-0.114-1.197-0.33L3.226,18.64 c-0.741-0.44-1.201-1.261-1.201-2.142V7.503c0-0.881,0.46-1.702,1.201-2.142l7.577-4.498c0.363-0.216,0.777-0.33,1.197-0.33 c0.419,0,0.833,0.114,1.197,0.33l7.577,4.498c0.624,0.371,1.046,1.013,1.164,1.732C21.686,6.557,21.12,6.411,20.459,6.797z"/></svg>Shell</li><li><svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg>Docker</li></ul>
+    </div>
+  </section>
+
+  <!-- ============ education & activities ============ -->
+  <section id="record" class="wrap">
+    <div class="sec-head reveal"><h2>Education &amp; activities</h2><span class="label">NORSU</span></div>
+    <ol class="record">
+      <li class="reveal"><span class="yrs mono">2023 – now</span><span class="org">BS Computer Science</span><span class="r-meta">Negros Oriental State University, College of Arts and Sciences</span><span class="place mono">Dumaguete</span></li>
+      <li class="reveal"><span class="yrs mono">Member</span><span class="org">Idealists’ Guild</span><span class="r-meta">Web development and cybersecurity</span><span class="place mono">NORSU</span></li>
+      <li class="reveal"><span class="yrs mono">Member</span><span class="org">Computer Science Organization</span><span class="r-meta">Computer science student organization</span><span class="place mono">NORSU</span></li>
+    </ol>
+  </section>
+
+  <!-- ============ certificates ============ -->
+  <section id="certs" class="wrap">
+    <div class="sec-head reveal"><h2>Certificates</h2><span class="label">4 earned</span></div>
+    <ol class="record">
+      <li class="reveal"><span class="yrs mono score">C2 · 77/100</span><span class="org">EF SET English Certificate</span><span class="r-meta">Proficient level</span><span class="place mono">EF SET</span></li>
+      <li class="reveal"><span class="yrs mono">AI</span><span class="org">Azure AI Fundamentals</span><span class="r-meta">Microsoft artificial intelligence course</span><span class="place mono">Microsoft</span></li>
+      <li class="reveal"><span class="yrs mono">AI</span><span class="org">AI Fluency: Framework &amp; Foundations</span><span class="r-meta">Working with AI effectively and responsibly</span><span class="place mono">Anthropic</span></li>
+      <li class="reveal"><span class="yrs mono">Civil service</span><span class="org">Civil Service Eligibility</span><span class="r-meta">Professional level</span><span class="place mono">CSC Philippines</span></li>
+    </ol>
+  </section>
+
+  <!-- ============ off the clock ============
+       Hand-picked films and music (media.css). To swap a pick, edit its card's text and href.
+       Artwork: films and series from Letterboxd / TVmaze, covers from Deezer, saved as .webp.
+       href   the film's Letterboxd page / the album's Spotify page
+       art    add an <img> inside .media-art, e.g.
+              <img src="assets/images/media/film-name.webp" width="400" height="600" alt="" loading="lazy">
+              (posters 2:3, covers 1:1; alt="" because the title is written beside it)
+       A card without an image shows its title as type, so it never looks broken. -->
+  <section id="offclock" class="wrap">
+    <div class="sec-head reveal"><h2>Off the clock</h2><span class="label">Films &amp; music</span></div>
+    <div class="media">
+      <div class="media-group reveal">
+        <div class="media-head"><h3 class="label">Films &amp; series</h3><a class="media-more mono" href="https://letterboxd.com/LETTERBOXD_USERNAME/" target="_blank" rel="noopener">Letterboxd <span aria-hidden="true">↗</span></a></div>
+        <ul class="media-grid films">
+        <li><a class="media-card" href="https://letterboxd.com/film/interstellar/" target="_blank" rel="noopener">
+          <span class="media-art"><span class="media-fallback" aria-hidden="true">Interstellar</span><img src="assets/images/media/interstellar.webp" width="400" height="600" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-title">Interstellar</span><span class="media-meta mono">2014 · Christopher Nolan</span></a></li>
+        <li><a class="media-card" href="https://letterboxd.com/film/fight-club/" target="_blank" rel="noopener">
+          <span class="media-art"><span class="media-fallback" aria-hidden="true">Fight Club</span><img src="assets/images/media/fight-club.webp" width="400" height="600" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-title">Fight Club</span><span class="media-meta mono">1999 · David Fincher</span></a></li>
+        <li><a class="media-card" href="https://www.imdb.com/title/tt4158110/" target="_blank" rel="noopener">
+          <span class="media-art"><span class="media-fallback" aria-hidden="true">Mr. Robot</span><img src="assets/images/media/mr-robot.webp" width="400" height="600" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-title">Mr. Robot</span><span class="media-meta mono">Series · 2015 – 2019 · Sam Esmail</span></a></li>
+        <li><a class="media-card" href="https://letterboxd.com/film/project-hail-mary/" target="_blank" rel="noopener">
+          <span class="media-art"><span class="media-fallback" aria-hidden="true">Project Hail Mary</span><img src="assets/images/media/project-hail-mary.webp" width="400" height="600" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-title">Project Hail Mary</span><span class="media-meta mono">2026 · Phil Lord &amp; Christopher Miller</span></a></li>
+        </ul>
+      </div>
+      <div class="media-group reveal">
+        <div class="media-head"><h3 class="label">On repeat</h3><a class="media-more mono" href="https://open.spotify.com/" target="_blank" rel="noopener">Spotify <span aria-hidden="true">↗</span></a></div>
+        <ul class="media-grid music">
+        <li><a class="media-card" href="https://open.spotify.com/album/79dL7FLiJFOO0EoehUHQBv" target="_blank" rel="noopener">
+          <span class="media-art"><span class="media-fallback" aria-hidden="true">Currents</span><img src="assets/images/media/currents.webp" width="500" height="500" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-title">Currents</span><span class="media-meta mono">Tame Impala · 2015</span></a></li>
+        <li><a class="media-card" href="https://open.spotify.com/track/61vyXXtY7OSYFRtSzv5ehw" target="_blank" rel="noopener">
+          <span class="media-art"><span class="media-fallback" aria-hidden="true">Mundo</span><img src="assets/images/media/mundo.webp" width="500" height="500" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-title">Mundo</span><span class="media-meta mono">IV of Spades · 2018 · Single</span></a></li>
+        <li><a class="media-card" href="https://open.spotify.com/album/5EBGCvO6upi3GNknMVe9x9" target="_blank" rel="noopener">
+          <span class="media-art"><span class="media-fallback" aria-hidden="true">ye</span><img src="assets/images/media/ye.webp" width="500" height="500" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-title">ye</span><span class="media-meta mono">Kanye West · 2018</span></a></li>
+        <li><a class="media-card" href="https://open.spotify.com/album/42WVQWuf1teDysXiOupIZt" target="_blank" rel="noopener">
+          <span class="media-art"><span class="media-fallback" aria-hidden="true">Birds in the Trap Sing McKnight</span><img src="assets/images/media/birds-in-the-trap.webp" width="500" height="500" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-title">Birds in the Trap Sing McKnight</span><span class="media-meta mono">Travis Scott · 2016</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ contact ============ -->
+  <section id="contact" class="wrap">
+    <div class="sec-head reveal"><h2>Contact</h2><span class="label">Dumaguete City, Philippines · UTC+8</span></div>
+    <div class="contact">
+      <p class="contact-big reveal">Have a web app or data tool <b>that needs building?</b></p>
+      <!-- message form (contact.js validates it). Sending is not connected yet:
+           see sendMessage() in contact.js for where a delivery service plugs in. -->
+      <form class="msg-form reveal" id="msgForm" novalidate>
+        <div class="field">
+          <label class="label" for="msgEmail">Your email</label>
+          <input id="msgEmail" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false"
+                 placeholder="you@example.com" required aria-describedby="msgEmailErr">
+          <span class="field-err mono" id="msgEmailErr"></span>
+        </div>
+        <div class="field">
+          <label class="label" for="msgText">Message</label>
+          <textarea id="msgText" name="message" rows="3" maxlength="2000"
+                    placeholder="What are you building, and when do you need it?" required aria-describedby="msgTextErr msgCount"></textarea>
+          <span class="field-foot"><span class="field-err mono" id="msgTextErr"></span><span class="field-count mono" id="msgCount">0 / 2000</span></span>
+        </div>
+        <div class="msg-actions">
+          <button class="mag btn-send" id="mag" type="submit"><span class="mag-inner"><span class="send-label">Send message</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></button>
+          <p class="msg-status mono" id="msgStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+      <!-- details panel: #copyBtn copies #email (contact.js); #contactTime is kept live by clock.js -->
+      <dl class="channels reveal">
+        <div><dt class="label">Email</dt><dd class="ct-email"><a id="email" href="mailto:enolpeaxlian120@gmail.com">enolpeaxlian120@gmail.com</a>
+          <button class="copy-btn" id="copyBtn" type="button" aria-label="Copy email address" title="Copy">
+            <svg class="i-copy" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
+            <svg class="i-done" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+          </button></dd></div>
+        <div><dt class="label">Profiles</dt><dd class="profiles"><a href="https://github.com/maxxqcty" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/maximilian-axel-enolpe-90b755266/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85V1.15zm4.94 12.25V6.17h-2.4v7.23h2.4zm-1.2-8.21c.84 0 1.36-.56 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .69.52 1.25 1.33 1.25h.01zm4.91 8.21V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.63v3.88h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg>LinkedIn <span aria-hidden="true">↗</span></a></dd></div>
+        <div><dt class="label">Local time</dt><dd><span class="ct-time" id="contactTime">--:--</span> <span class="ct-note mono" id="contactNote"></span></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<!-- ============ footer ============ -->
+<footer class="site-footer"><div class="wrap mono"><span>© 2026 Maximilian Axel Enolpe</span><span>Set in Bricolage Grotesque &amp; Instrument Sans</span></div></footer>
+
+<!-- ============ overlays (fixed, decorative) ============ -->
+<div class="preview" id="preview" aria-hidden="true"><canvas width="600" height="420"></canvas><span class="cap mono"></span></div>
+<div class="coords mono" id="coords" aria-hidden="true">X 0000 · Y 0000</div>
+<div class="toast mono" id="toast" role="status"></div>
+
+<div class="cur" id="cur" aria-hidden="true">
+  <svg class="cur-goo">
+    <defs><filter id="goo" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b"/>
+      <feColorMatrix in="b" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -10"/>
+    </filter></defs>
+    <g filter="url(#goo)" id="curBlobs"></g>
+  </svg>
+  <div class="cur-label" id="curLabel">View</div>
+</div>
+<div class="cur-x" id="curX" aria-hidden="true"></div>
+
+</body>
+</html>

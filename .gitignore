@@ -1,0 +1,7 @@
+# originals, not loaded by the site (see README): resume, full-size photos
+source/
+
+# OS / editor clutter
+Thumbs.db
+desktop.ini
+.DS_Store

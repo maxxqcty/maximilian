@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Design tokens
+   Every colour, font and size used on the site comes from here.
+   Light values live on :root; dark values are redefined twice so that both
+   the OS setting and the in-page theme toggle work.
+   ========================================================================== */
+
+:root {
+  /* colour */
+  --paper: #E8EBE6;            /* page background */
+  --paper-2: #DDE1DA;          /* raised surfaces, canvas backgrounds */
+  --ink: #14171A;              /* text and strong lines */
+  --ink-soft: #565C60;         /* secondary text */
+  --line: rgba(20, 23, 26, .09); /* hairlines and the drafting grid */
+  --accent: #2B44E8;           /* cobalt: the one accent */
+  --on-accent: #F3F5FF;        /* text on accent fills */
+  --danger: #C2362B;           /* form errors */
+  /* section colours: each section re-points --accent at its own (layout.css); the hero and contact keep cobalt */
+  --c-work: #6A3BD4; --c-profile: #0B7A6E; --c-languages: #C2410C; --c-record: #B4237A; --c-certs: #2E7D1E; --c-offclock: #845A00;
+
+  /* type */
+  --f-display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --f-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --step--1: .8125rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
+  --step-hero: clamp(3rem, .5rem + 7.6vw, 8.5rem);
+
+  /* layout + motion */
+  --max: 1320px;
+  --gutter: clamp(16px, 3vw, 40px);
+  --ease: cubic-bezier(.2, .8, .1, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1213; --paper-2: #181C1E; --ink: #E3E6E0; --ink-soft: #949A9C;
+    --line: rgba(227, 230, 224, .07); --accent: #8C9DFF; --on-accent: #0B0E22; --danger: #FF8A7E;
+    --c-work: #B79CFF; --c-profile: #4FD1C1; --c-languages: #FF9A5C; --c-record: #F47BC0; --c-certs: #8BD66B; --c-offclock: #F2C14E;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #0F1213; --paper-2: #181C1E; --ink: #E3E6E0; --ink-soft: #949A9C;
+  --line: rgba(227, 230, 224, .07); --accent: #8C9DFF; --on-accent: #0B0E22; --danger: #FF8A7E;
+    --c-work: #B79CFF; --c-profile: #4FD1C1; --c-languages: #FF9A5C; --c-record: #F47BC0; --c-certs: #8BD66B; --c-offclock: #F2C14E;
+  color-scheme: dark;
+}

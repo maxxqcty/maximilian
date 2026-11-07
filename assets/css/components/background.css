@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Animated background canvas (drawn by background.js) + theme-switch reveal
+   ========================================================================== */
+
+/* sits with the drafting grid, under all content */
+.bg-fx { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+
+/* ---------- theme switch: the new theme spreads as a circle from the toggle ----------
+   theme.js wraps the switch in a View Transition and animates the new snapshot's
+   clip-path; these rules stop the browser's default cross-fade. */
+::view-transition-old(root),
+::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
+
+/* during the switch, colour transitions are off so the revealed half is already final */
+.theme-switching, .theme-switching * { transition: none !important; }

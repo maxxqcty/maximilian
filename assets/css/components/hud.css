@@ -1,0 +1,97 @@
+/* ==========================================================================
+   HUD: cursor coordinate readout (bottom left) and the scroll ruler that
+   replaces the browser scrollbar on the right edge (scroll-ruler.js).
+   The ruler is only switched on (html[data-ruler="on"]) for a mouse or
+   trackpad on screens wider than 720px; touch keeps the native scrollbar.
+   ========================================================================== */
+
+.coords {
+  position: fixed; z-index: 25; pointer-events: none;
+  left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  padding: 4px 8px; border-radius: 4px; color: var(--ink-soft); font-variant-numeric: tabular-nums;
+  background: color-mix(in srgb, var(--paper) 80%, transparent);
+}
+
+/* ---------- scroll ruler ---------- */
+html[data-ruler="on"] { scrollbar-width: none; --rail-w: 60px; }
+html[data-ruler="on"]::-webkit-scrollbar { width: 0; height: 0; display: none; }
+/* reserve the rail's width so page content never sits under it */
+html[data-ruler="on"] body { padding-right: var(--rail-w); }
+
+.scroll-ruler {
+  position: fixed; top: 0; right: 0; z-index: 26; display: block; touch-action: none; cursor: ns-resize;
+  /* frost: solid at the outer edge, feathering out toward the page */
+  background: linear-gradient(to left,
+    color-mix(in srgb, var(--paper) 92%, transparent) 0 40%,
+    color-mix(in srgb, var(--paper) 55%, transparent) 75%,
+    transparent);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+
+/* ---------- section headings that ride the rail and flip to the top ----------
+   scroll-ruler.js positions every letter (.rw-ch) in viewport px; each word's
+   own box only serves as its click target, so letters are offset back by it. */
+.ruler-words { position: fixed; inset: 0; z-index: 27; pointer-events: none; }
+.rw-word {
+  position: absolute; cursor: pointer; color: var(--ink); white-space: pre;
+  /* Archivo at weight 620, 118% width, as on the reference site; letter positions are measured in this exact style */
+  font: 620 34px/1 "Archivo", var(--f-display); font-stretch: 118%; letter-spacing: 0;
+  transition: color .25s;
+}
+/* each heading in its section's colour; the intro and contact stay ink */
+.rw-word[data-sec="work"] { color: var(--c-work); }
+.rw-word[data-sec="profile"] { color: var(--c-profile); }
+.rw-word[data-sec="languages"] { color: var(--c-languages); }
+.rw-word[data-sec="record"] { color: var(--c-record); }
+.rw-word[data-sec="certs"] { color: var(--c-certs); }
+.rw-word[data-sec="offclock"] { color: var(--c-offclock); }
+.rw-word.is-hot { color: var(--accent); }
+.rw-ch { position: absolute; left: var(--ox, 0); top: var(--oy, 0); display: block; will-change: transform, opacity; }
+.rw-measure { left: -9999px; top: 0; visibility: hidden; font-size: 100px; cursor: default; }
+
+/* with the ruler on, the rail carries the large headings, so the section heading rows
+   in the page shrink to a compact line: small title + number tag, no rule of their own
+   (the separator above each section draws it) */
+html[data-ruler="on"] .sec-head {
+  align-items: center; padding-bottom: 0; margin-bottom: clamp(20px, 2.5vw, 32px);
+  opacity: .55; transition: opacity .3s;   /* quiet: the rail heading is the loud one; full strength on hover */
+}
+html[data-ruler="on"] .sec-head:hover { opacity: 1; }
+html[data-ruler="on"] .sec-head::after { content: none; }
+/* set like the rail headings (.rw-word): Archivo 620 at 118% width, all caps */
+html[data-ruler="on"] .sec-head h2 {
+  align-items: center; text-transform: uppercase;
+  font-family: "Archivo", var(--f-display); font-size: clamp(.85rem, .75rem + .3vw, 1rem); line-height: 1.1; letter-spacing: 0;
+  font-variation-settings: "wght" 620, "wdth" 118;
+}
+html[data-ruler="on"] .sec-head h2::before { margin-top: 0; text-transform: none; }
+html[data-ruler="on"] .sec-head:hover h2 { font-variation-settings: "wght" 760, "wdth" 112; letter-spacing: 0; }
+
+/* section separators (ruler on only, since the heading rows are compact then):
+   a full-width ink rule with end ticks, like the rail. The section number is shown by the
+   heading's own tag, so the separator's number (::after below) is switched off. */
+html[data-ruler="on"] main { counter-reset: sep 1; }
+html[data-ruler="on"] main > section { counter-increment: sep; }
+html[data-ruler="on"] main > section + section { position: relative; padding-top: clamp(40px, 4.5vw, 64px); }
+html[data-ruler="on"] main > section + section::before {
+  content: ""; position: absolute; top: 0; height: 11px;
+  left: max(var(--gutter), env(safe-area-inset-left, 0px)); right: max(var(--gutter), env(safe-area-inset-right, 0px));
+  background:
+    linear-gradient(var(--ink), var(--ink)) left 50% / 100% 1px no-repeat,
+    linear-gradient(var(--ink), var(--ink)) left top / 1px 100% no-repeat,
+    linear-gradient(var(--ink), var(--ink)) right top / 1px 100% no-repeat;
+}
+html[data-ruler="on"] main > section + section::after {
+  content: none;
+  position: absolute; top: 20px; left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  font: 500 .6875rem/1 var(--f-mono); letter-spacing: .12em; color: var(--accent);
+}
+
+/* contrast pools: page-colour washes behind the top pile and the bottom queue */
+.rw-pool { position: absolute; right: 0; width: min(640px, 55vw); opacity: 0; pointer-events: none; }
+.rw-pool-top { top: 0; background: radial-gradient(ellipse 100% 100% at 100% 0%, color-mix(in srgb, var(--paper) 94%, transparent) 35%, transparent 75%); }
+.rw-pool-bot { bottom: 0; background: radial-gradient(ellipse 100% 100% at 100% 100%, color-mix(in srgb, var(--paper) 94%, transparent) 35%, transparent 75%); }
+
+@media (hover: none), (max-width: 720px) {
+  .coords { display: none; }
+}

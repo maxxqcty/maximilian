@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Custom cursor (mouse and trackpad only; cursor.js adds .has-cursor)
+   - .cur      liquid blob layer: SVG circles merged by a goo filter
+   - .cur-x    crosshair: the exact pointer position, always visible
+   - .cur-label  text riding on the blob over project rows
+   ========================================================================== */
+
+.cur, .cur-x { display: none; }
+.has-cursor, .has-cursor * { cursor: none !important; }
+
+/* ---------- blob layer ---------- */
+.has-cursor .cur { display: block; position: fixed; inset: 0; z-index: 60; pointer-events: none; }
+.cur-goo { width: 100%; height: 100%; overflow: visible; transition: opacity .35s; }
+.cur-goo g { fill: var(--ink); transition: fill .35s; }
+
+/* over an element the whole layer blends with difference, so the white blob
+   shows the negative of whatever is underneath. The blend must sit on this
+   fixed layer itself: on a child it would only blend inside the layer. */
+.cur.inv { mix-blend-mode: difference; }
+.cur.inv .cur-goo g { fill: #fff; }
+
+/* black text inside the inverted layer knocks through to the original colours */
+.cur-label {
+  position: fixed; left: 0; top: 0; white-space: nowrap; color: #000;
+  font: 600 .6875rem/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase;
+  opacity: 0; scale: .6; transition: opacity .25s, scale .45s var(--ease);
+}
+.cur-label.on { opacity: 1; scale: 1; }
+.cur.hide .cur-goo, .cur.hide .cur-label { opacity: 0; }
+
+/* ---------- crosshair: outside the blend layer so it never disappears ----------
+   cursor.js positions it with the `translate` property. Keep it that way: `rotate` and
+   `scale` below would otherwise rotate/scale its position instead of just its shape. */
+.has-cursor .cur-x {
+  display: block; position: fixed; left: 0; top: 0; z-index: 61; pointer-events: none;
+  width: 12px; height: 12px; margin: -6px 0 0 -6px;
+  filter: drop-shadow(0 0 1px var(--paper)) drop-shadow(0 0 1px var(--paper));
+  transition: rotate .5s var(--ease), scale .35s var(--ease), opacity .35s;
+}
+.cur-x::before, .cur-x::after { content: ""; position: absolute; background: var(--accent); border-radius: 1px; }
+.cur-x::before { left: 5px; top: 0; width: 2px; height: 12px; }
+.cur-x::after { top: 5px; left: 0; width: 12px; height: 2px; }
+.cur-x.link { rotate: 135deg; }
+.cur-x.view, .cur-x.lens { scale: .8; }
+.cur-x.hide { opacity: 0; }

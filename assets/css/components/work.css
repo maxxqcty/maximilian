@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Selected work: project index rows, phone thumbnails, floating preview card
+   ========================================================================== */
+
+.work-list { list-style: none; margin: 0; padding: 0; }
+.row { border-bottom: 1px solid var(--line); }
+.row a {
+  display: grid; grid-template-columns: 1fr 5fr 4fr 2fr 1fr; gap: var(--gutter); align-items: center;
+  padding-block: clamp(18px, 2.6vw, 30px); text-decoration: none; position: relative; isolation: isolate;
+}
+
+/* accent fill wipes up from the bottom on hover */
+.row a::before {
+  content: ""; position: absolute; inset: 0 calc(var(--gutter) * -.5); z-index: -1;
+  background: var(--accent); transform: scaleY(0); transform-origin: bottom; transition: transform .55s var(--ease);
+}
+.row a:hover::before, .row a:focus-visible::before { transform: scaleY(1); transform-origin: top; }
+.row a:hover, .row a:focus-visible,
+.row a:hover .r-meta, .row a:focus-visible .r-meta { color: var(--on-accent); }
+
+/* hover only moves the title with transform: changing its weight or width
+   reflowed the text, resized the row and made it jitter */
+.r-title {
+  min-width: 0; text-wrap: balance;
+  font: 400 clamp(1.5rem, 1rem + 2.2vw, 2.9rem)/1.02 var(--f-display); letter-spacing: -.03em;
+  font-variation-settings: "wght" 350, "wdth" 90; transition: transform .55s var(--ease);
+}
+.row a:hover .r-title, .row a:focus-visible .r-title { transform: translateX(10px); }
+.r-meta { color: var(--ink-soft); transition: color .3s; min-width: 0; }
+.r-arrow { justify-self: end; width: 22px; height: 22px; transition: transform .55s var(--ease); }
+.row a:hover .r-arrow { transform: rotate(-45deg); }
+
+/* phones: no hover, so each row carries its own small animated thumbnail */
+.r-thumb { display: none; }
+@media (max-width: 820px) {
+  .row a { grid-template-columns: 1fr auto; grid-template-areas: "year thumb" "title thumb" "role thumb"; row-gap: 4px; }
+  .r-title { grid-area: title; }
+  .r-role { grid-area: role; }
+  .r-year { grid-area: year; }
+  .r-disc, .r-arrow { display: none; }
+  .r-thumb { display: block; grid-area: thumb; width: 88px; height: 88px; border-radius: 4px; }
+}
+
+/* desktop: one preview card follows the cursor across the list.
+   The caption has its own strip under the artwork: overlaid on the canvas it
+   collided with text the drawings render themselves (e.g. the "001.pdf" counter). */
+.preview {
+  position: fixed; left: 0; top: 0; width: 300px; z-index: 30; pointer-events: none;
+  display: grid; grid-template-rows: 210px auto;
+  border-radius: 6px; overflow: hidden; background: var(--ink); box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .35);
+  clip-path: inset(50% 50% 50% 50% round 6px); transition: clip-path .55s var(--ease);
+}
+.preview.on { clip-path: inset(0 0 0 0 round 6px); }
+.preview canvas { width: 100%; height: 100%; display: block; }
+.preview .cap {
+  padding: 9px 12px; color: var(--paper); background: var(--ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+@media (max-width: 820px), (hover: none) { .preview { display: none; } }
