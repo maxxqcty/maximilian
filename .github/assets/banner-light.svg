@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" role="img" aria-label="Maximilian Axel Enolpe, portfolio">
+  <rect width="1280" height="420" rx="18" fill="#E8EBE6"/>
+  <g stroke="rgba(20,23,26,.07)" stroke-width="1"><line x1="80.0" y1="0" x2="80.0" y2="420"/><line x1="173.3" y1="0" x2="173.3" y2="420"/><line x1="266.7" y1="0" x2="266.7" y2="420"/><line x1="360.0" y1="0" x2="360.0" y2="420"/><line x1="453.3" y1="0" x2="453.3" y2="420"/><line x1="546.6" y1="0" x2="546.6" y2="420"/><line x1="640.0" y1="0" x2="640.0" y2="420"/><line x1="733.3" y1="0" x2="733.3" y2="420"/><line x1="826.6" y1="0" x2="826.6" y2="420"/><line x1="920.0" y1="0" x2="920.0" y2="420"/><line x1="1013.3" y1="0" x2="1013.3" y2="420"/><line x1="1106.6" y1="0" x2="1106.6" y2="420"/><line x1="1200.0" y1="0" x2="1200.0" y2="420"/></g>
+  <!-- disc + dashed ring, echoing the portrait on the site -->
+  <circle cx="1030" cy="210" r="168" fill="none" stroke="#565C60" stroke-opacity=".5" stroke-width="1.4" stroke-dasharray="5 7"/>
+  <circle cx="1030" cy="210" r="132" fill="#2B44E8"/>
+  <path d="M968 262V158h22l40 55 40-55h22v104h-26v-60l-36 48-36-48v60z" fill="#F3F5FF"/>
+  <!-- text -->
+  <g font-family="'IBM Plex Mono', Consolas, 'Courier New', monospace" font-size="15" letter-spacing="2.4" fill="#565C60">
+    <text x="88" y="92">FULL-STACK DEVELOPER  —  BS COMPUTER SCIENCE</text>
+  </g>
+  <g font-family="'Bricolage Grotesque', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif" fill="#14171A" font-weight="300" letter-spacing="-2">
+    <text x="84" y="185" font-size="86">Maximilian Axel</text>
+    <text x="84" y="270" font-size="86">Enolpe</text>
+  </g>
+  <text x="88" y="318" font-family="'Instrument Sans', 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" fill="#565C60">Full-stack web apps, data tools and algorithm visualisers.</text>
+  <rect x="88" y="356" width="11" height="11" transform="rotate(45 93.5 361.5)" fill="none" stroke="#6A3BD4" stroke-width="1.6"/><rect x="118" y="356" width="11" height="11" transform="rotate(45 123.5 361.5)" fill="none" stroke="#0B7A6E" stroke-width="1.6"/><rect x="148" y="356" width="11" height="11" transform="rotate(45 153.5 361.5)" fill="none" stroke="#C2410C" stroke-width="1.6"/><rect x="178" y="356" width="11" height="11" transform="rotate(45 183.5 361.5)" fill="none" stroke="#B4237A" stroke-width="1.6"/><rect x="208" y="356" width="11" height="11" transform="rotate(45 213.5 361.5)" fill="none" stroke="#2E7D1E" stroke-width="1.6"/><rect x="238" y="356" width="11" height="11" transform="rotate(45 243.5 361.5)" fill="none" stroke="#845A00" stroke-width="1.6"/>
+  <text x="280" y="367" font-family="'IBM Plex Mono', Consolas, monospace" font-size="13" letter-spacing="2" fill="#565C60">DUMAGUETE CITY, PH</text>
+</svg>
